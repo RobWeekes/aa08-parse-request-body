@@ -6,7 +6,7 @@ function firstStep(input) {
     // console.log(keyValuePairs);
     // return keyValuePairs;
 }
-firstStep("username=azure+green&password=password%21");
+// firstStep("username=azure+green&password=password%21");
 
 
 // should return a 2D array with key value pairs
@@ -30,21 +30,36 @@ function secondStep(input) {
 // should return an array with all "+" signs replaced
 // ex: [["username", "azure green"], ["password", "password%21"]]
 function thirdStep(input) {
-
+    // Use str.replace(/\+/g, " ") to replace all + symbols in the string with a space
+    return input.map(([k, v]) => [k, v.replace(/\+/g, " ")] );
+    // let result = input.map();
+    // console.log(result);
+    // return result;
 }
-
+// thirdStep([
+//   ["username", "azure+green"],
+//   ["password", "password%21"],
+// ]);
 
 // should return an array with percent encoded values decoded
 // ex: [["username", "azure green"], ["password", "password!"]]
 function fourthStep(input) {
-
+    return input.map(([k, v]) => [k, decodeURIComponent(v)]);
 }
 
 
 // should return an object of key/value pairs
 // ex: { username: "azure green",password: "password!"}
 function fifthStep(input) {
-
+    const obj = {};
+    input.forEach(([k, v]) => {
+        obj[k] = v;
+    })
+    return obj;
+    // return input.reduce((acc, [k, v]) => {
+    //     acc[k] = v;
+    //     return acc;
+    // }, {})   // must pass in default(starting) accumulator as empty obj.
 }
 
 // should take in the request body as a string and return an object of key/value pairs
