@@ -1,9 +1,10 @@
 // should return an array of separate key value pairs
 // ex: ['username=azure+green', 'password=password%21']
 function firstStep(input) {
-    const keyValuePairs = input.split('&');
-    console.log(keyValuePairs);
-    return keyValuePairs;
+    return input.split('&');
+    // const keyValuePairs = input.split('&');
+    // console.log(keyValuePairs);
+    // return keyValuePairs;
 }
 firstStep("username=azure+green&password=password%21");
 
@@ -11,16 +12,19 @@ firstStep("username=azure+green&password=password%21");
 // should return a 2D array with key value pairs
 // ex: [["username", "azure+green"], ["password", "password%21"]]
 function secondStep(input) {
-    keyValuePairs = firstStep(input);
-    const nestedArr = keyValuePairs.map(pair => {
-        console.log(pair);
-        pair.split('=');
-        // console.log(pair);
-    });
-    console.log(keyValuePairs);
-    return nestedArr;
-}
-secondStep("username=azure+green&password=password%21");
+    return input.map(kvPair => kvPair.split('='));
+
+    // // keyValuePairs = firstStep(input);
+    // const keyValuePairs = input.map(pair => {
+    //     // console.log(input);
+    //     // console.log(pair);
+    //     const result = pair.split('=');
+    //     return result;
+    // });
+    // // console.log(keyValuePairs)
+    // return keyValuePairs;
+  }
+// console.log(secondStep(["username=azure+green", "password=password%21"]));
 
 
 // should return an array with all "+" signs replaced
