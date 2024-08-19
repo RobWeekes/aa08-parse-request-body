@@ -65,8 +65,23 @@ function fifthStep(input) {
 // should take in the request body as a string and return an object of key/value pairs
 // example: { username: "azure green",password: "password!"}
 function parseBody(str) {
-
+    // return fifthStep(fourthStep(thirdStep(secondStep(firstStep(str)))));
+    // console.log(str);
+    const split = firstStep(str);
+    // console.log(split);
+    const nestedArr = secondStep(split);
+    // console.log(nestedArr);
+    const spaces = thirdStep(nestedArr);
+    // console.log(spaces);
+    const decoded = fourthStep(spaces);
+    // console.log(decoded);
+    const obj = fifthStep(decoded);
+    // console.log(obj);
+    return obj;
 }
+// parseBody("username=azure+green&password=password%21");
+
+
 
 
 /******************************************************************************/
